@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鄭毓萱 Greenny | 演員個人簡歷</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts (Fallback) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F', // A subtle green for "Greenny"
+                        dark: '#121212',
+                        card: '#1E1E1E',
+                        text: '#E0E0E0',
+                        muted: '#A0A0A0'
+                    },
+                    fontFamily: {
+                        sans: ['"Microsoft JhengHei"', '"Microsoft YaHei"', '"Noto Sans TC"', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2A9D8F; 
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Glassmorphism utils */
+        .glass {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Text Stroke for stylistic headings */
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-dark text-text font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 flex justify-between items-center glass top-0">
+        <a href="#" class="text-2xl font-bold tracking-widest hover:text-primary transition-colors">GREENNY<span class="text-primary">.</span></a>
+        
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+            <i data-lucide="menu" class="w-8 h-8"></i>
+        </button>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+            <a href="#about" class="hover:text-primary transition-colors relative group">
+                關於我
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#drama" class="hover:text-primary transition-colors relative group">
+                影視戲劇
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#film" class="hover:text-primary transition-colors relative group">
+                短片作品
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#contact" class="hover:text-primary transition-colors relative group">
+                聯絡方式
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-dark z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 text-xl">
+        <button id="close-menu" class="absolute top-6 right-6 text-white">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="#about" class="mobile-link hover:text-primary">關於我</a>
+        <a href="#drama" class="mobile-link hover:text-primary">影視戲劇</a>
+        <a href="#film" class="mobile-link hover:text-primary">短片作品</a>
+        <a href="#contact" class="mobile-link hover:text-primary">聯絡方式</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <!-- Replacing with a placeholder that represents an actor portfolio feel -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop" alt="Background" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/30 to-dark"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 animate-fade-in-up">
+            <h2 class="text-primary text-lg md:text-xl font-medium tracking-[0.3em] mb-4 uppercase">Actress Portfolio</h2>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-2 tracking-wide text-white">鄭毓萱</h1>
+            <p class="text-xl md:text-2xl text-muted font-light mb-8 tracking-[0.2em]">小綠 GREENNY</p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-4 mt-8">
+                <a href="#contact" class="px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-opacity-90 transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(42,157,143,0.3)]">
+                    邀約合作
+                </a>
+                <a href="#drama" class="px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white hover:text-dark transition-all hover:scale-105 active:scale-95 glass">
+                    瀏覽作品
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="w-8 h-8 text-muted"></i>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                <!-- Image Card -->
+                <div class="w-full md:w-1/2 relative group reveal-on-scroll">
+                    <div class="absolute -inset-4 bg-primary/20 rounded-2xl blur-lg group-hover:bg-primary/30 transition-all duration-500"></div>
+                    <img src="https://images.unsplash.com/photo-1485290334039-a3c69043e541?q=80&w=2000&auto=format&fit=crop" alt="Profile" class="relative rounded-2xl w-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 aspect-[3/4]">
+                </div>
+
+                <!-- Info -->
+                <div class="w-full md:w-1/2 reveal-on-scroll">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-px w-12 bg-primary"></div>
+                        <span class="text-primary font-bold tracking-widest uppercase">Personal Profile</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8">關於 <span class="text-primary">我</span></h2>
+                    
+                    <div class="grid grid-cols-2 gap-y-8 gap-x-4 mb-10">
+                        <div class="space-y-1">
+                            <p class="text-muted text-sm tracking-wider">身高 HEIGHT</p>
+                            <p class="text-2xl font-semibold">162 CM</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-muted text-sm tracking-wider">體重 WEIGHT</p>
+                            <p class="text-2xl font-semibold">43 KG</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-muted text-sm tracking-wider">生日 BIRTH</p>
+                            <p class="text-2xl font-semibold">1996.08.29</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-muted text-sm tracking-wider">語言 LANGUAGE</p>
+                            <p class="text-lg font-medium">中文、台語、日文(N5)</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-10">
+                        <p class="text-muted text-sm tracking-wider mb-3">興趣 INTERESTS</p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-card rounded-full border border-white/5 text-sm hover:border-primary/50 transition-colors cursor-default">🏔️ 登山</span>
+                            <span class="px-4 py-2 bg-card rounded-full border border-white/5 text-sm hover:border-primary/50 transition-colors cursor-default">🌊 自由潛水</span>
+                            <span class="px-4 py-2 bg-card rounded-full border border-white/5 text-sm hover:border-primary/50 transition-colors cursor-default">💃 舞蹈</span>
+                        </div>
+                    </div>
+
+                    <p class="text-muted leading-relaxed">
+                        擁有豐富的影視與短片演出經驗，擅長詮釋細膩情感與多樣化角色。從護理師、警察到學生，致力於在每一個角色中注入靈魂。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drama Experience Section -->
+    <section id="drama" class="py-20 bg-card/30 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="text-primary font-bold tracking-widest uppercase block mb-2">Filmography</span>
+                <h2 class="text-4xl md:text-5xl font-bold">影視戲劇演出</h2>
+            </div>
+
+            <div class="relative border-l border-white/10 ml-4 md:ml-1/2 space-y-12">
+                
+                <!-- 2025 Block -->
+                <div class="mb-12">
+                    <div class="absolute -left-3 md:left-1/2 md:-ml-3 w-6 h-6 bg-primary rounded-full border-4 border-dark z-10"></div>
+                    <div class="pl-8 md:pl-0 flex flex-col md:items-center w-full">
+                         <h3 class="text-3xl font-bold text-white mb-6 md:mb-8 bg-dark inline-block px-4 py-1 rounded border border-white/10">2025</h3>
+                    </div>
+
+                    <!-- Items Grid for 2025 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pl-8 md:pl-0">
+                        <!-- Item -->
+                        <div class="group relative bg-card p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-all hover:-translate-y-1 reveal-on-scroll">
+                            <div class="text-primary text-sm font-bold mb-1">公視台語台</div>
+                            <h4 class="text-xl font-bold mb-1">1987</h4>
+                            <p class="text-muted">飾演 邱韻之</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="group relative bg-card p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-all hover:-translate-y-1 reveal-on-scroll">
+                            <div class="text-primary text-sm font-bold mb-1">客家電視台</div>
+                            <h4 class="text-xl font-bold mb-1">都市開基祖</h4>
+                            <p class="text-muted">飾演 小美</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="group relative bg-card p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-all hover:-translate-y-1 reveal-on-scroll">
+                            <div class="text-red-500 text-sm font-bold mb-1">NETFLIX</div>
+                            <h4 class="text-xl font-bold mb-1">急診室的奇蹟</h4>
+                            <p class="text-muted">飾演 宜君</p>
+                        </div>
+                         <!-- Item -->
+                         <div class="group relative bg-card p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-all hover:-translate-y-1 reveal-on-scroll">
+                            <div class="text-primary text-sm font-bold mb-1">公視</div>
+                            <h4 class="text-xl font-bold mb-1">人生只租不賣</h4>
+                            <p class="text-muted">飾演 租客C妻子</p>
+                        </div>
+                        <!-- Item -->
+                        <div class="group relative bg-card p-6 rounded-xl border border-white/5 hover:border-primary/50 transition-all hover:-translate-y-1 reveal-on-scroll md:col-span-2">
+                            <div class="text-gray-400 text-sm font-bold mb-1">影集</div>
+                            <h4 class="text-xl font-bold mb-1">監所男子求生紀</h4>
+                            <p class="text-muted">飾演 新護理師</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2024 Block -->
+                <div class="mb-12">
+                    <div class="pl-8 md:pl-0 flex flex-col md:items-center w-full">
+                         <h3 class="text-2xl font-bold text-muted mb-6">2024</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pl-8 md:pl-0">
+                         <div class="bg-card p-5 rounded-xl border border-white/5 reveal-on-scroll">
+                            <h4 class="text-lg font-bold">金來號</h4>
+                            <p class="text-muted text-sm">飾演 三樓護理師</p>
+                        </div>
+                        <div class="bg-card p-5 rounded-xl border border-white/5 reveal-on-scroll">
+                            <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-white mb-2 inline-block">電影</span>
+                            <h4 class="text-lg font-bold">有病才會喜歡你</h4>
+                            <p class="text-muted text-sm">飾演 小魚姊姊</p>
+                        </div>
+                        <div class="bg-card p-5 rounded-xl border border-white/5 reveal-on-scroll md:col-span-2">
+                            <span class="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded mb-2 inline-block">重點作品</span>
+                            <h4 class="text-xl font-bold">我們與惡的距離 2</h4>
+                            <p class="text-muted">飾演 李宣萱</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Years Condensed -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 pl-8 md:pl-0">
+                    <div class="flex justify-between items-center border-b border-white/5 py-3 reveal-on-scroll">
+                        <div>
+                            <span class="text-primary font-bold mr-2">2023</span>
+                            <span class="font-medium">人生清理員</span>
+                        </div>
+                        <span class="text-muted text-sm">飾演 護理師</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 py-3 reveal-on-scroll">
+                        <div>
+                            <span class="text-primary font-bold mr-2">2023</span>
+                            <span class="font-medium">孔雀魚</span>
+                        </div>
+                        <span class="text-muted text-sm">飾演 菜鳥女警</span>
+                    </div>
+                     <div class="flex justify-between items-center border-b border-white/5 py-3 reveal-on-scroll">
+                        <div>
+                            <span class="text-primary font-bold mr-2">2022</span>
+                            <span class="font-medium">不夠善良的我們</span>
+                        </div>
+                        <span class="text-muted text-sm">飾演 Rebecca 員工</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 py-3 reveal-on-scroll">
+                        <div>
+                            <span class="text-primary font-bold mr-2">2022</span>
+                            <span class="font-medium">疫起</span>
+                        </div>
+                        <span class="text-muted text-sm">飾演 B棟護理師</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 py-3 reveal-on-scroll">
+                        <div>
+                            <span class="text-primary font-bold mr-2">2021</span>
+                            <span class="font-medium">逆局</span>
+                        </div>
+                        <span class="text-muted text-sm">飾演 記者</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 py-3 reveal-on-scroll">
+                        <div>
+                            <span class="text-primary font-bold mr-2">2021</span>
+                            <span class="font-medium">華燈初上</span>
+                        </div>
+                        <span class="text-muted text-sm">飾演 化妝師</span>
+                    </div>
+                     <div class="flex justify-between items-center border-b border-white/5 py-3 reveal-on-scroll">
+                        <div>
+                            <span class="text-primary font-bold mr-2">2020</span>
+                            <span class="font-medium">返校影集</span>
+                        </div>
+                        <span class="text-muted text-sm">飾演 許孝安</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Short Film Section (Cards with Awards) -->
+    <section id="film" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 px-2 reveal-on-scroll">
+                <div>
+                    <span class="text-primary font-bold tracking-widest uppercase block mb-2">Short Films</span>
+                    <h2 class="text-4xl md:text-5xl font-bold">短片與獨立製片</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="inline-block w-24 h-1 bg-white/20"></span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Highlighted Award Card -->
+                <div class="bg-gradient-to-br from-card to-[#232323] rounded-2xl p-1 shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-2 reveal-on-scroll">
+                    <div class="bg-dark h-full rounded-xl p-6 flex flex-col relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-3 opacity-10">
+                            <i data-lucide="award" class="w-24 h-24"></i>
+                        </div>
+                        <div class="mb-4">
+                            <span class="text-primary font-bold text-sm">2022 屏東電影節</span>
+                            <h3 class="text-2xl font-bold mt-1">我的水鬼爸爸</h3>
+                            <p class="text-muted mt-1">飾演 小琳</p>
+                        </div>
+                        <div class="mt-auto space-y-2">
+                            <div class="flex items-center gap-2 text-yellow-500">
+                                <i data-lucide="trophy" class="w-4 h-4"></i>
+                                <span class="text-sm font-bold">榮獲 最佳演員獎</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-yellow-500">
+                                <i data-lucide="trophy" class="w-4 h-4"></i>
+                                <span class="text-sm font-bold">榮獲 60萬首獎</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regular Card -->
+                <div class="bg-card rounded-2xl p-6 border border-white/5 hover:border-white/20 transition-all hover:-translate-y-1 reveal-on-scroll">
+                    <span class="text-xs text-muted block mb-2">2025 義守大學</span>
+                    <h3 class="text-xl font-bold mb-1">當風吹起時</h3>
+                    <p class="text-gray-400 text-sm">飾演 陳以芯</p>
+                </div>
+
+                 <!-- Regular Card -->
+                 <div class="bg-card rounded-2xl p-6 border border-white/5 hover:border-white/20 transition-all hover:-translate-y-1 reveal-on-scroll">
+                    <span class="text-xs text-muted block mb-2">2023 世新大學</span>
+                    <h3 class="text-xl font-bold mb-1">那些無以名狀的日常</h3>
+                    <p class="text-gray-400 text-sm">飾演 張祉歆</p>
+                </div>
+
+                <!-- Award Card -->
+                <div class="bg-card rounded-2xl p-6 border border-white/5 hover:border-white/20 transition-all hover:-translate-y-1 reveal-on-scroll">
+                    <span class="text-xs text-muted block mb-2">2020 世新大學</span>
+                    <h3 class="text-xl font-bold mb-1">無燼</h3>
+                    <p class="text-gray-400 text-sm mb-4">飾演 吳心苗</p>
+                     <div class="flex flex-col gap-1">
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded inline-block w-fit text-yellow-500">🏆 佳音金傳獎 首獎</span>
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded inline-block w-fit text-gray-300">🏅 校園鑫馬獎 佳作</span>
+                    </div>
+                </div>
+
+                 <!-- Award Card -->
+                 <div class="bg-card rounded-2xl p-6 border border-white/5 hover:border-white/20 transition-all hover:-translate-y-1 reveal-on-scroll">
+                    <span class="text-xs text-muted block mb-2">2020 MYPHONE</span>
+                    <h3 class="text-xl font-bold mb-1">驚啥</h3>
+                    <p class="text-gray-400 text-sm mb-4">飾演 女兒</p>
+                     <div class="flex flex-col gap-1">
+                        <span class="text-xs bg-white/10 px-2 py-1 rounded inline-block w-fit text-gray-300">🏅 行動創作獎 佳作</span>
+                    </div>
+                </div>
+
+                <!-- List of others -->
+                <div class="bg-card/50 rounded-2xl p-6 border border-white/5 reveal-on-scroll flex flex-col justify-center">
+                    <h3 class="text-lg font-bold mb-4 text-white/80">其他短片經歷</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex justify-between"><span>2020 自由的溫度</span> <span class="text-white/50">王巧屏</span></li>
+                        <li class="flex justify-between"><span>2020 上山</span> <span class="text-white/50">陳若茵</span></li>
+                        <li class="flex justify-between"><span>2020 心就會是晴朗的</span> <span class="text-white/50">張子芸</span></li>
+                        <li class="flex justify-between"><span>2019 茫</span> <span class="text-white/50">林雅倩</span></li>
+                        <li class="flex justify-between"><span>2018 上岸</span> <span class="text-white/50">張甯</span></li>
+                        <li class="flex justify-between"><span>2016 洛基的視線</span> <span class="text-white/50">姊姊</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview (Optional visual break) -->
+    <section class="py-10 overflow-hidden">
+        <div class="flex gap-4 animate-scroll whitespace-nowrap">
+            <!-- Placeholders for gallery feel -->
+            <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+            </div>
+             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=2576&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+            </div>
+             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=2550&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+            </div>
+             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                <img src="https://images.unsplash.com/photo-1616004655123-8185dd76e890?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+            </div>
+             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+            </div>
+             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-0"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center reveal-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">開始 <span class="text-primary">合作</span></h2>
+            <p class="text-muted text-lg mb-12">期待與您創造更多精彩的角色與故事</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <!-- Email -->
+                <a href="mailto:wecan136@gmail.com" class="group bg-card p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all flex flex-col items-center gap-4 hover:-translate-y-2">
+                    <div class="p-4 bg-primary/10 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i data-lucide="mail" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-muted mb-1">Email</p>
+                        <p class="text-xl font-medium tracking-wide">wecan136@gmail.com</p>
+                    </div>
+                </a>
+
+                <!-- Phone -->
+                <a href="tel:+886929880156" class="group bg-card p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-all flex flex-col items-center gap-4 hover:-translate-y-2">
+                    <div class="p-4 bg-primary/10 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i data-lucide="phone" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-muted mb-1">Phone</p>
+                        <p class="text-xl font-medium tracking-wide">0929-880-156</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex justify-center gap-6">
+                <a href="#" class="w-12 h-12 rounded-full bg-card border border-white/10 flex items-center justify-center hover:bg-[#00B900] hover:text-white transition-all hover:scale-110">
+                    <span class="font-bold">L</span>
+                </a>
+                <a href="https://instagram.com/CHENG_YU0829" target="_blank" class="w-12 h-12 rounded-full bg-card border border-white/10 flex items-center justify-center hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 hover:text-white transition-all hover:scale-110">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+            </div>
+            
+            <div class="mt-8 text-sm text-muted">
+                <p>Line ID: 16thssc0829</p>
+                <p class="mt-1">IG: @CHENG_YU0829</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-white/20 text-sm border-t border-white/5">
+        <p>&copy; 2025 Cheng Yu-Hsuan Portfolio. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Transition
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/90', 'shadow-lg', 'py-2');
+                navbar.classList.remove('glass', 'py-4');
+            } else {
+                navbar.classList.remove('bg-dark/90', 'shadow-lg', 'py-2');
+                navbar.classList.add('glass', 'py-4');
+            }
+        });
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('translate-x-full');
+            if (isHidden) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    entry.target.style.opacity = '1';
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0'; // Initial state
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
