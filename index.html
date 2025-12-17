@@ -28,11 +28,16 @@
                     animation: {
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'scroll': 'scroll 40s linear infinite',
                     },
                     keyframes: {
                         fadeInUp: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
                         }
                     }
                 }
@@ -67,11 +72,22 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        /* Text Stroke for stylistic headings */
-        .text-stroke {
-            -webkit-text-stroke: 1px rgba(255,255,255,0.1);
-            color: transparent;
+        
+        /* Video Container for responsive aspect ratio */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -90,6 +106,10 @@
         <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
             <a href="#about" class="hover:text-primary transition-colors relative group">
                 關於我
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#reel" class="hover:text-primary transition-colors relative group">
+                影音作品
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
             <a href="#drama" class="hover:text-primary transition-colors relative group">
@@ -113,6 +133,7 @@
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
         <a href="#about" class="mobile-link hover:text-primary">關於我</a>
+        <a href="#reel" class="mobile-link hover:text-primary">影音作品</a>
         <a href="#drama" class="mobile-link hover:text-primary">影視戲劇</a>
         <a href="#film" class="mobile-link hover:text-primary">短片作品</a>
         <a href="#contact" class="mobile-link hover:text-primary">聯絡方式</a>
@@ -137,8 +158,9 @@
                 <a href="#contact" class="px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-opacity-90 transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(42,157,143,0.3)]">
                     邀約合作
                 </a>
-                <a href="#drama" class="px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white hover:text-dark transition-all hover:scale-105 active:scale-95 glass">
-                    瀏覽作品
+                <!-- New Download Button -->
+                <a href="path/to/resume.pdf" download class="px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white hover:text-dark transition-all hover:scale-105 active:scale-95 glass flex items-center gap-2">
+                    <i data-lucide="download" class="w-4 h-4"></i> 下載簡歷
                 </a>
             </div>
         </div>
@@ -187,17 +209,72 @@
                     </div>
 
                     <div class="mb-10">
-                        <p class="text-muted text-sm tracking-wider mb-3">興趣 INTERESTS</p>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-card rounded-full border border-white/5 text-sm hover:border-primary/50 transition-colors cursor-default">🏔️ 登山</span>
-                            <span class="px-4 py-2 bg-card rounded-full border border-white/5 text-sm hover:border-primary/50 transition-colors cursor-default">🌊 自由潛水</span>
-                            <span class="px-4 py-2 bg-card rounded-full border border-white/5 text-sm hover:border-primary/50 transition-colors cursor-default">💃 舞蹈</span>
+                        <p class="text-muted text-sm tracking-wider mb-4">專長與興趣 SKILLS</p>
+                        <div class="grid grid-cols-3 gap-3">
+                            <!-- Visual Interest Cards -->
+                            <div class="bg-card p-3 rounded-lg border border-white/5 text-center hover:border-primary/50 transition-all group">
+                                <i data-lucide="mountain" class="w-6 h-6 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm">登山</span>
+                            </div>
+                            <div class="bg-card p-3 rounded-lg border border-white/5 text-center hover:border-primary/50 transition-all group">
+                                <i data-lucide="waves" class="w-6 h-6 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm">自由潛水</span>
+                            </div>
+                            <div class="bg-card p-3 rounded-lg border border-white/5 text-center hover:border-primary/50 transition-all group">
+                                <i data-lucide="music" class="w-6 h-6 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform"></i>
+                                <span class="text-sm">舞蹈</span>
+                            </div>
                         </div>
                     </div>
 
                     <p class="text-muted leading-relaxed">
                         擁有豐富的影視與短片演出經驗，擅長詮釋細膩情感與多樣化角色。從護理師、警察到學生，致力於在每一個角色中注入靈魂。
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Showreel / Video -->
+    <section id="reel" class="py-20 bg-gradient-to-b from-dark to-card relative">
+        <div class="max-w-5xl mx-auto px-6">
+             <div class="text-center mb-12 reveal-on-scroll">
+                <span class="text-primary font-bold tracking-widest uppercase block mb-2">Showreel</span>
+                <h2 class="text-4xl md:text-5xl font-bold">影音作品集</h2>
+                <p class="text-muted mt-4">2024 - 2025 精選演出片段</p>
+            </div>
+            
+            <!-- Video Placeholder -->
+            <div class="reveal-on-scroll">
+                <!-- Switched to Image Link method to avoid YouTube Error 153 (Embedding Disabled) -->
+                <!-- Added 'z-10' to ensure it stays reachable -->
+                <div class="video-container bg-black border border-white/10 shadow-2xl relative group cursor-pointer rounded-xl overflow-hidden">
+                    <!-- FIX: Changed 'relative' to 'absolute top-0 left-0' so it fills the 16:9 container correctly -->
+                    <a href="https://www.youtube.com/watch?v=ZuC81Z3s33I" target="_blank" class="block w-full h-full absolute top-0 left-0">
+                        <!-- YouTube Thumbnail -->
+                        <img src="https://img.youtube.com/vi/ZuC81Z3s33I/maxresdefault.jpg" alt="Showreel Thumbnail" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:scale-105">
+                        
+                        <!-- Play Button Overlay -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-primary/90 group-hover:bg-primary text-white p-6 rounded-full backdrop-blur-sm transition-all transform group-hover:scale-110 shadow-[0_0_30px_rgba(42,157,143,0.5)]">
+                                <i data-lucide="play" class="w-12 h-12 fill-current ml-1"></i>
+                            </div>
+                        </div>
+
+                        <!-- Text Hint -->
+                        <div class="absolute bottom-6 right-6 bg-black/70 px-4 py-2 rounded-lg text-sm text-white backdrop-blur-md border border-white/10 flex items-center gap-2">
+                            <span>前往 YouTube 觀看</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Metadata -->
+                <div class="mt-6 flex flex-col md:flex-row justify-between items-center text-sm text-muted gap-4">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-primary/10 text-primary px-2 py-1 rounded">戲劇演出合集</span>
+                        <span>Duration: 03:20</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -426,27 +503,45 @@
         </div>
     </section>
 
-    <!-- Gallery Preview (Optional visual break) -->
-    <section class="py-10 overflow-hidden">
-        <div class="flex gap-4 animate-scroll whitespace-nowrap">
-            <!-- Placeholders for gallery feel -->
-            <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+    <!-- Gallery Preview (Continuous Scroll) -->
+    <section class="py-10 overflow-hidden bg-black/20">
+        <!-- Container for double scroll to create infinity effect -->
+        <div class="flex w-max">
+            <!-- First set -->
+            <div class="flex gap-4 animate-scroll whitespace-nowrap px-2">
+                <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
+                <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=2576&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
+                <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=2550&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
+                <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1616004655123-8185dd76e890?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
+                 <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
             </div>
-             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=2576&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
-            </div>
-             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=2550&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
-            </div>
-             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1616004655123-8185dd76e890?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
-            </div>
-             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
-            </div>
-             <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+            <!-- Second set for seamless loop -->
+             <div class="flex gap-4 animate-scroll whitespace-nowrap px-2" aria-hidden="true">
+                <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
+                <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=2576&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
+                <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=2550&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
+                <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1616004655123-8185dd76e890?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
+                 <div class="w-64 h-96 flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100">
+                </div>
             </div>
         </div>
     </section>
@@ -492,9 +587,11 @@
                 </a>
             </div>
             
-            <div class="mt-8 text-sm text-muted">
-                <p>Line ID: 16thssc0829</p>
-                <p class="mt-1">IG: @CHENG_YU0829</p>
+            <div class="mt-12">
+                <a href="path/to/resume.pdf" download class="inline-flex items-center gap-2 text-muted hover:text-white transition-colors border-b border-transparent hover:border-primary">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    下載完整 PDF 簡歷
+                </a>
             </div>
         </div>
     </section>
